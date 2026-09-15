@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ورود مدیریت | شیما استور</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0b0d12;
+            --panel: #11141b;
+            --border: #272c36;
+            --text: #f5f5f5;
+            --muted: #9298a5;
+            --gold: #d8b36a;
+            --gold-light: #f0d18d;
+            --danger: #ff6464;
+            --success: #55d98b;
+        }
+
+        body {
+            font-family: "Vazirmatn", sans-serif;
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(216, 179, 106, 0.12),
+                    transparent 40%
+                ),
+                var(--bg);
+
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* صفحه لاگین */
+
+        .login-page {
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+        }
+
+        /* باکس لاگین */
+
+        .login-box {
+            width: 100%;
+            max-width: 430px;
+
+            background: rgba(17, 20, 27, 0.96);
+
+            border: 1px solid var(--border);
+
+            border-radius: 24px;
+
+            padding: 42px 35px;
+
+            text-align: center;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(216, 179, 106, 0.04);
+        }
+
+        /* لوگو */
+
+        .login-logo {
+            margin-bottom: 28px;
+        }
+
+        .login-logo span {
+            display: block;
+
+            color: var(--gold-light);
+
+            font-size: 34px;
+            font-weight: 800;
+
+            letter-spacing: -1px;
+        }
+
+        .login-logo small {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: 10px;
+
+            letter-spacing: 5px;
+
+            margin-top: 3px;
+        }
+
+        /* عنوان */
+
+        .login-box h1 {
+            font-size: 22px;
+            font-weight: 700;
+
+            margin-bottom: 8px;
+        }
+
+        .login-box .subtitle {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            margin-bottom: 30px;
+        }
+
+        /* فرم */
+
+        .input-group {
+            text-align: right;
+
+            margin-bottom: 5px;
+        }
+
+        .input-group label {
+            display: block;
+
+            color: #d8d9dd;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            margin-bottom: 9px;
+        }
+
+        .input-group input {
+            width: 100%;
+            height: 54px;
+
+            background: #0d1016;
+
+            border: 1px solid var(--border);
+
+            border-radius: 13px;
+
+            color: white;
+
+            padding: 0 16px;
+
+            font-family: inherit;
+            font-size: 14px;
+
+            outline: none;
+
+            transition: 0.25s;
+        }
+
+        .input-group input::placeholder {
+            color: #626874;
+        }
+
+        .input-group input:focus {
+            border-color: var(--gold);
+
+            box-shadow:
+                0 0 0 3px rgba(216, 179, 106, 0.08);
+        }
+
+        /* پیام */
+
+        #loginMessage {
+            min-height: 22px;
+
+            margin: 10px 0 12px;
+
+            font-size: 13px;
+
+            color: var(--danger);
+        }
+
+        /* دکمه ورود */
+
+        #loginBtn {
+            width: 100%;
+            height: 54px;
+
+            border: none;
+            border-radius: 13px;
+
+            background: linear-gradient(
+                135deg,
+                var(--gold-light),
+                var(--gold));
+
+            color: #15110a;
+
+            font-family: inherit;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+        }
+
+        #loginBtn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 28px rgba(216, 179, 106, 0.18);
+        }
+
+        #loginBtn:active {
+            transform: translateY(0);
+        }
+
+        /* برگشت به فروشگاه */
+
+        .back-store {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            text-decoration: none;
+
+            transition: 0.2s;
+        }
+
+        .back-store:hover {
+            color: var(--gold-light);
+        }
+
+        /* موبایل */
+
+        @media (max-width: 480px) {
+
+            .login-page {
+                padding: 15px;
+            }
+
+            .login-box {
+                padding: 35px 22px;
+
+                border-radius: 20px;
+            }
+
+            .login-logo span {
+                font-size: 29px;
+            }
+
+            .login-box h1 {
+                font-size: 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="login-page">
+
+        <div class="login-box">
+
+            <div class="login-logo">
+                <span>شیما</span>
+                <small>STORE</small>
+            </div>
+
+            <h1>ورود به پنل مدیریت</h1>
+
+            <p class="subtitle">
+                برای ادامه وارد بخش مدیریت شوید
+            </p>
+
+            <form id="loginForm">
+
+                <div class="input-group">
+
+                    <label for="adminPassword">
+                        رمز عبور
+                    </label>
+
+                    <input
+                        type="password"
+                        id="adminPassword"
+                        placeholder="رمز عبور مدیریت"
+                        autocomplete="current-password"
+                    >
+
+                </div>
+
+                <p id="loginMessage"></p>
+
+                <button type="submit" id="loginBtn">
+                    ورود به پنل
+                </button>
+
+            </form>
+
+            <a href="index.html" class="back-store">
+                ← بازگشت به فروشگاه
+            </a>
+
+        </div>
+
+    </div>
+
+
+    
+    <script>
+const ADMIN_PASSWORD = "Shima@1405";
+
+const loginForm = document.getElementById("loginForm");
+const passwordInput = document.getElementById("adminPassword");
+const loginMessage = document.getElementById("loginMessage");
+
+loginForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const password = passwordInput.value.trim();
+
+    if (password === "") {
+
+        loginMessage.style.color = "#ff6464";
+        loginMessage.textContent = "لطفاً رمز عبور را وارد کنید.";
+
+        passwordInput.focus();
+
+        return;
+    }
+
+    if (password === ADMIN_PASSWORD) {
+
+        sessionStorage.setItem(
+            "shima_admin_logged_in",
+            "true"
+        );
+
+        loginMessage.style.color = "#55d98b";
+        loginMessage.textContent = "ورود موفق بود ✓";
+
+        setTimeout(function() {
+
+            window.location.href = "admin-panel.html";
+
+        }, 600);
+
+    } else {
+
+        loginMessage.style.color = "#ff6464";
+        loginMessage.textContent = "رمز عبور اشتباه است.";
+
+        passwordInput.value = "";
+        passwordInput.focus();
+    }
+
+});
+</script>
+
+</body>
+
+</html>
